@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "InsertStudent";
+}
+
+@{
+    ViewBag.Title = "InsertStudent";
+}
+<h3>Thêm sinh viên</h3>
+<p class="alert-danger">@ViewBag.error</p>
+@using (Html.BeginForm("InsertStudent", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <table class="table-bordered">
+        <tr>
+            <td>@Html.DisplayName("Mã sinh viên")</td>
+            <td>@Html.TextBox("StudentId")</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayName("Họ đệm")</td>
+            <td>@Html.TextBox("FirstName")</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayName("Tên")</td>
+            <td>@Html.TextBox("LastName")</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayName("Lớp")</td>
+            <td>
+                @Html.DropDownList("ClassId", @ViewBag.listclass as
+List<SelectListItem>)
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayName("Địa chỉ")</td>
+            <td>@Html.TextBox("Address")</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayName("Ngày sinh")</td>
+            <td>@Html.TextBox("Birthday", null, new { type = "date" })</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayName("Giới tính")</td>
+            <td>@Html.CheckBox("Gender") Nam</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayName("Điện thoại")</td>
+            <td>@Html.TextBox("Phone")</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayName("Hình ảnh")</td>
+            <td><input type="file" name="file" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Lưu" /></td>
+        </tr>
+    </table>
+}
